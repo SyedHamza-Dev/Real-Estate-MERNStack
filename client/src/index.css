@@ -549,3 +549,31 @@
     border-radius: 999px;
     background: transparent;
   }
+
+  /*======================================
+  //--//-->   HOME PAGE POLISH
+  ======================================*/
+
+  .hero-slider .slick-dots {
+    bottom: 20px;
+  }
+
+  .hero-slider .slick-dots li button:before {
+    color: #ffffff;
+    opacity: 0.5;
+    font-size: 9px;
+  }
+
+  .hero-slider .slick-dots li.slick-active button:before {
+    color: #2eca6a;
+    opacity: 1;
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet {
+    background: #d1d5db;
+    opacity: 1;
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet-active {
+    background: #2eca6a;
+  }
