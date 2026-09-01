@@ -19,6 +19,7 @@ import 'animate.css/animate.min.css';
 import Footer from './components/Footer';
 import FavoriteProperties from './pages/Favourite';
 import ContactUs from './pages/Contact'
+import PriceEstimator from './pages/PriceEstimator'
 export default function App() {
 
 
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/verify-email" element={<EmailVerification />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path='/search' element={<Search />} />
+        <Route path='/price-estimator' element={<PriceEstimator />} />
         <Route path='/favourites' element={<FavoriteProperties />} />
         <Route path='/listing/:listingId' element={<Listing />} />
         {/* <Route path='/verifyEmail' element={<VerifyEmail />} /> Add this route */}

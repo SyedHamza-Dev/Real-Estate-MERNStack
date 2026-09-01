@@ -82,6 +82,9 @@ export default function Header() {
           <Link to='/Contactus' className='no-underline' onClick={handleLinkClick}>
             <li className='text-gray-800 text-lg font-semibold hover:text-green-500 transition-colors'>Contact</li>
           </Link>
+          <Link to='/price-estimator' className='no-underline' onClick={handleLinkClick}>
+            <li className='text-gray-800 text-lg font-semibold hover:text-green-500 transition-colors'>Price Estimator</li>
+          </Link>
           <Link to='/profile' className='flex items-center no-underline' onClick={handleLinkClick}>
             {currentUser ? (
               <img
