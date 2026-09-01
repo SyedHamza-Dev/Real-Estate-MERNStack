@@ -145,10 +145,32 @@ export default function PriceEstimator() {
           </div>
           <h1 className='text-3xl md:text-4xl font-bold text-gray-900'>Price Estimator</h1>
           <p className='text-gray-500 mt-2 max-w-xl mx-auto'>
-            A Random Forest model trained on real housing data estimates a
-            market price from the details below — a genuine prediction, not
-            a lookup table.
+            Not sure what a property might be worth? Pick a location,
+            adjust a few details, and get an instant estimated price.
           </p>
+
+          <div className='flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6 text-sm text-gray-600'>
+            <span className='flex items-center gap-2'>
+              <span className='w-6 h-6 rounded-full bg-[#2eca6a] text-white text-xs font-bold flex items-center justify-center shrink-0'>
+                1
+              </span>
+              Pick a location
+            </span>
+            <span className='hidden sm:block w-6 h-px bg-gray-300' />
+            <span className='flex items-center gap-2'>
+              <span className='w-6 h-6 rounded-full bg-[#2eca6a] text-white text-xs font-bold flex items-center justify-center shrink-0'>
+                2
+              </span>
+              Adjust the sliders
+            </span>
+            <span className='hidden sm:block w-6 h-px bg-gray-300' />
+            <span className='flex items-center gap-2'>
+              <span className='w-6 h-6 rounded-full bg-[#2eca6a] text-white text-xs font-bold flex items-center justify-center shrink-0'>
+                3
+              </span>
+              Get your estimate
+            </span>
+          </div>
         </div>
       </div>
 
@@ -304,8 +326,8 @@ export default function PriceEstimator() {
               <div className='bg-white border border-dashed border-gray-300 rounded-2xl p-10 text-center text-gray-400'>
                 <FaRobot size={34} className='mx-auto mb-3 text-gray-300' />
                 <p className='text-sm'>
-                  Adjust the details and click <b>Estimate Price</b> to get a
-                  real model prediction.
+                  Fill in the details on the left and click{' '}
+                  <b>Estimate Price</b> — your estimate will appear here.
                 </p>
               </div>
             )}
@@ -329,10 +351,20 @@ export default function PriceEstimator() {
                 </p>
                 <div className='mt-5 pt-5 border-t border-[#2eca6a]/25 text-xs text-gray-500 space-y-1'>
                   <p className='flex items-center justify-center gap-1.5'>
-                    <FaRobot className='text-[#2eca6a]' /> {result.model}
+                    <FaRobot className='text-[#2eca6a]' /> Estimate from a
+                    machine learning model trained on real housing data
                   </p>
-                  <p>{result.dataset}</p>
-                  <p className='text-gray-400'>~$34k average error (MAE) on held-out test data</p>
+                  <p className='text-gray-400'>
+                    Typically within about $34,000 of the actual price
+                  </p>
+                  <details className='mt-2'>
+                    <summary className='cursor-pointer text-gray-400 hover:text-gray-600 select-none'>
+                      Technical details
+                    </summary>
+                    <p className='mt-1 text-gray-400'>
+                      {result.model} · {result.dataset}
+                    </p>
+                  </details>
                 </div>
               </div>
             )}
