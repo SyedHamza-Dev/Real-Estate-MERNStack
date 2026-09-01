@@ -1,5 +1,9 @@
 {
   "type": "module",
+  "scripts": {
+    "start": "node api/index.mjs",
+    "dev": "node --watch api/index.mjs"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
