@@ -4,28 +4,31 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { useSelector } from 'react-redux';
 import 'swiper/css/bundle';
-import {
-  FaBath,
-  FaBed,
-  FaChair,
-  FaMapMarkerAlt,
-  FaParking,
-  FaShare,
-  FaHeart,
-} from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import Contact from '../components/Contact';
+import sampleListings from '../data/sampleListings';
 
 export default function Listing() {
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [contact, setContact] = useState(false);
   const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem('favorites')) || []);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
+    // Sample listings (from the Search page fallback) live only in the
+    // frontend and have no matching record on the backend, so they're
+    // looked up locally instead of being fetched.
+    if (params.listingId.startsWith('sample-')) {
+      const sample = sampleListings.find((l) => l._id === params.listingId);
+      setListing(sample || null);
+      setError(!sample);
+      setLoading(false);
+      return;
+    }
+
     const fetchListing = async () => {
       try {
         setLoading(true);

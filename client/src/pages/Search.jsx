@@ -81,6 +81,40 @@ export default function Search() {
       });
     }
 
+    const filters = {
+      searchTerm: (searchTermFromUrl || '').toLowerCase(),
+      type: typeFromUrl || 'all',
+      parking: parkingFromUrl === 'true',
+      furnished: furnishedFromUrl === 'true',
+      offer: offerFromUrl === 'true',
+      sort: sortFromUrl || 'created_at',
+      order: orderFromUrl || 'desc',
+    };
+
+    const applySampleFilters = (data) => {
+      let results = data.filter((l) => {
+        if (filters.type !== 'all' && l.type !== filters.type) return false;
+        if (filters.parking && !l.parking) return false;
+        if (filters.furnished && !l.furnished) return false;
+        if (filters.offer && !l.offer) return false;
+        if (
+          filters.searchTerm &&
+          !`${l.name} ${l.address}`.toLowerCase().includes(filters.searchTerm)
+        ) {
+          return false;
+        }
+        return true;
+      });
+
+      const priceOf = (l) => (l.offer ? l.discountPrice : l.regularPrice);
+      if (filters.sort === 'regularPrice') {
+        results = [...results].sort((a, b) =>
+          filters.order === 'asc' ? priceOf(a) - priceOf(b) : priceOf(b) - priceOf(a)
+        );
+      }
+      return results;
+    };
+
     const fetchListings = async () => {
       setLoading(true);
       setShowMore(false);
@@ -94,11 +128,11 @@ export default function Search() {
           setShowMore(results.length > 8);
           setListings(results);
         } else {
-          setListings(sampleListings);
+          setListings(applySampleFilters(sampleListings));
           setUsingSample(true);
         }
       } catch (error) {
-        setListings(sampleListings);
+        setListings(applySampleFilters(sampleListings));
         setUsingSample(true);
       } finally {
         setLoading(false);
