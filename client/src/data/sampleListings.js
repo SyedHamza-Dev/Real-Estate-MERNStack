@@ -8,6 +8,8 @@ import property7 from '../assets/images/property-7.jpg';
 import property8 from '../assets/images/property-8.jpg';
 import property9 from '../assets/images/property-9.jpg';
 import property10 from '../assets/images/property-10.jpg';
+import villaTour from '../assets/videos/generated/villa-tour.mp4';
+import penthouseTour from '../assets/videos/generated/penthouse-tour.mp4';
 
 const photos = [
   property1, property2, property3, property4, property5,
@@ -24,7 +26,8 @@ const sampleListings = [
     name: 'Modern Lakeside Villa',
     address: '212 Lakeview Drive, Doral, FL',
     description: 'A bright, open-plan villa with floor-to-ceiling windows and direct lake access. The living area flows onto a private dock, and the kitchen was fully renovated last year with quartz countertops throughout.',
-    imageUrls: [photos[0], photos[4]],
+    imageUrls: [photos[0], photos[4], photos[2], photos[8]],
+    videoUrl: villaTour,
     regularPrice: 480000,
     discountPrice: 450000,
     offer: true,
@@ -39,7 +42,8 @@ const sampleListings = [
     deck: true,
     tennisCourts: false,
     internet: true,
-    marbleFloors: true,
+    concreteFlooring: true,
+    sunRoom: true,
   },
   {
     _id: 'sample-2',
@@ -61,7 +65,8 @@ const sampleListings = [
     deck: false,
     tennisCourts: false,
     internet: true,
-    marbleFloors: false,
+    concreteFlooring: false,
+    sunRoom: false,
   },
   {
     _id: 'sample-3',
@@ -83,7 +88,8 @@ const sampleListings = [
     deck: true,
     tennisCourts: false,
     internet: true,
-    marbleFloors: false,
+    concreteFlooring: false,
+    sunRoom: false,
   },
   {
     _id: 'sample-4',
@@ -105,7 +111,8 @@ const sampleListings = [
     deck: false,
     tennisCourts: false,
     internet: true,
-    marbleFloors: false,
+    concreteFlooring: false,
+    sunRoom: false,
   },
   {
     _id: 'sample-5',
@@ -127,7 +134,8 @@ const sampleListings = [
     deck: true,
     tennisCourts: true,
     internet: true,
-    marbleFloors: true,
+    concreteFlooring: true,
+    sunRoom: false,
   },
   {
     _id: 'sample-6',
@@ -149,14 +157,16 @@ const sampleListings = [
     deck: true,
     tennisCourts: false,
     internet: true,
-    marbleFloors: false,
+    concreteFlooring: false,
+    sunRoom: false,
   },
   {
     _id: 'sample-7',
     name: 'Riverside Penthouse',
     address: '500 Riverwalk Way, Chicago, IL',
     description: 'Top-floor penthouse with a private terrace overlooking the river. Building amenities include a gym, concierge, and secure parking.',
-    imageUrls: [photos[6], photos[9]],
+    imageUrls: [photos[6], photos[9], photos[3], photos[1]],
+    videoUrl: penthouseTour,
     regularPrice: 720000,
     discountPrice: 675000,
     offer: true,
@@ -171,7 +181,8 @@ const sampleListings = [
     deck: false,
     tennisCourts: false,
     internet: true,
-    marbleFloors: true,
+    concreteFlooring: true,
+    sunRoom: false,
   },
   {
     _id: 'sample-8',
@@ -193,7 +204,8 @@ const sampleListings = [
     deck: false,
     tennisCourts: false,
     internet: true,
-    marbleFloors: false,
+    concreteFlooring: false,
+    sunRoom: false,
   },
   {
     _id: 'sample-9',
@@ -215,7 +227,8 @@ const sampleListings = [
     deck: false,
     tennisCourts: false,
     internet: true,
-    marbleFloors: false,
+    concreteFlooring: false,
+    sunRoom: false,
   },
   {
     _id: 'sample-10',
@@ -237,7 +250,8 @@ const sampleListings = [
     deck: false,
     tennisCourts: true,
     internet: true,
-    marbleFloors: true,
+    concreteFlooring: true,
+    sunRoom: false,
   },
 ];
 
