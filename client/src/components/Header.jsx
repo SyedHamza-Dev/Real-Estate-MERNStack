@@ -52,7 +52,7 @@ export default function Header() {
     >
       <div className='max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-6'>
         <Link to='/' className='no-underline flex items-center shrink-0'>
-          <img src={logo} alt='Rehaish' className='h-9' />
+          <img src={logo} alt='Rehaish' className='h-14' />
         </Link>
 
         {/* Desktop nav */}
