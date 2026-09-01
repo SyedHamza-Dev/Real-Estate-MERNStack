@@ -6,7 +6,9 @@ property/location features, wired into the Rehaish frontend as a
 the prediction comes from a Random Forest model trained and evaluated
 in a notebook, served over a small API.
 
-![Price Estimator in the Rehaish UI](model/demo-price-estimator.png)
+![Price Estimator form — location presets, sliders, brand-matched styling](model/demo-price-estimator-form.png)
+
+![Price Estimator result — real prediction for a San Francisco input](model/demo-price-estimator.png)
 
 ## Why this dataset
 
@@ -67,7 +69,10 @@ uvicorn main:app --port 8500
 **3. Frontend:** the `PriceEstimator` page reads the API URL from
 `VITE_PRICE_API_URL` (defaults to `http://localhost:8500`). Run the
 existing `client` dev server as usual — the new page is at
-`/price-estimator`.
+`/price-estimator`, linked from the header nav. It includes preset
+buttons for a few California cities (auto-fills income/population/
+lat-long) and sliders for the rest, styled to match Rehaish's existing
+green branding.
 
 ## Author
 
