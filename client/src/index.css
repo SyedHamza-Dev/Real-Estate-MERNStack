@@ -578,3 +578,16 @@
   .testimonial-swiper .swiper-pagination-bullet-active {
     background: #2eca6a;
   }
+
+  /* Force equal-height cards -- without this, slides with shorter quotes
+     leave the card short while a longer one stretches, so the two side
+     by side end up visibly mismatched in height. */
+  .testimonial-swiper.swiper,
+  .testimonial-swiper .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+  }
